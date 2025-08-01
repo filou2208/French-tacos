@@ -35,207 +35,70 @@
       max-width: 1000px;
       margin: auto;
     }
-    /* Galerie corrigée */
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 20px;
-      margin-bottom: 40px;
-    }
-    .gallery-img {
-      width: 300px;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
-      transition: transform 0.3s ease;
-      object-fit: cover;
-    }
-    .gallery-img:hover {
-      transform: scale(1.05);
-    }
-    .menu-img {
-      width: 100%;
-      max-width: 600px;
-      display: block;
-      margin: 20px auto;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-    }
-    /* Menu list styles */
-    .menu-list {
-      max-width: 600px;
-      margin: 20px auto;
-      background: #222;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(255, 0, 128, 0.7);
-    }
-    .menu-list h3 {
+    .lang-switch {
       text-align: center;
-      color: #ff66b2;
-      margin-bottom: 15px;
+      padding: 10px;
+      background: #222;
     }
-    .menu-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 8px 0;
-      border-bottom: 1px solid #444;
-      font-size: 1.1em;
+    .lang-switch a {
+      color: #00ccff;
+      cursor: pointer;
+      margin: 0 10px;
     }
-    .menu-item:last-child {
-      border-bottom: none;
-    }
-    .menu-item-name {
-      font-weight: bold;
-      color: #fff;
-    }
-    .menu-item-price {
-      color: #ff0080;
-    }
-    .whatsapp-btn, .order-now-btn {
+    .whatsapp-btn {
       display: inline-block;
       margin-top: 15px;
       padding: 12px 24px;
-      background-color: #25d366;
+      background-color: #25D366;
       color: white;
       text-decoration: none;
       border-radius: 5px;
       font-weight: bold;
       text-align: center;
     }
-    footer {
-      background: #111;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-      color: #ccc;
-    }
-    .lang-switch {
-      text-align: center;
-      padding: 10px;
-      background: #222;
-    }
-    a {
-      color: #00ccff;
-    }
-    iframe.map {
-      width: 100%;
-      height: 300px;
-      border: none;
-      border-radius: 10px;
-      margin-top: 10px;
-    }
-    @media (max-width: 600px) {
-      .gallery {
-        flex-direction: column;
-        align-items: center;
-      }
-      .menu-img {
-        width: 95%;
-      }
-      .gallery-img {
-        width: 90%;
-        max-width: 300px;
-      }
-      .menu-list {
-        width: 95%;
-      }
-    }
+    .hidden { display: none; }
   </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const lang = navigator.language || navigator.userLanguage;
-      if (lang.startsWith('en')) {
-        location.hash = 'english';
-      } else if (lang.startsWith('th')) {
-        location.hash = 'thai';
-      }
-    });
-  </script>
 </head>
 <body>
   <header>
-    <img src="Logo French Tacos.png" alt="Logo French Tacos" />
+    <img src="Logo French Tacos.png" alt="Logo French Tacos">
     <h1>Tacos Maison Lamai</h1>
     <p>Tacos français faits maison – Ouvert jusqu'à 4h du matin</p>
   </header>
 
   <div class="lang-switch">
-    <a href="#">FR</a> | <a href="#english">EN</a> | <a href="#thai">TH</a>
+    <a onclick="setLang('fr')">FR</a> | <a onclick="setLang('en')">EN</a> | <a onclick="setLang('th')">TH</a>
   </div>
 
-  <section>
+  <section id="content-fr">
     <h2>Bienvenue</h2>
-    <p>
-      Bienvenue chez <strong>Tacos Maison Lamai</strong>, votre adresse incontournable pour déguster de délicieux <strong>tacos français faits maison</strong> à Koh Samui...
-    </p>
-    <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank" rel="noopener noreferrer">Commander sur WhatsApp</a>
+    <p>Bienvenue chez <strong>Tacos Maison Lamai</strong>, votre adresse incontournable pour déguster de délicieux <strong>tacos français faits maison</strong> à Koh Samui. Ouvert jusqu'à 4h du matin !</p>
+    <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank">Commander sur WhatsApp</a>
   </section>
 
-  <!-- Section Menu -->
-  <section>
-    <h2>Notre Menu</h2>
-    <div class="menu-list">
-      <div class="menu-item">
-        <div class="menu-item-name">Tacos Classique</div>
-        <div class="menu-item-price">120 THB</div>
-      </div>
-      <div class="menu-item">
-        <div class="menu-item-name">Tacos Fromage</div>
-        <div class="menu-item-price">150 THB</div>
-      </div>
-      <div class="menu-item">
-        <div class="menu-item-name">Tacos Poulet</div>
-        <div class="menu-item-price">160 THB</div>
-      </div>
-      <div class="menu-item">
-        <div class="menu-item-name">Tacos Végétarien</div>
-        <div class="menu-item-price">140 THB</div>
-      </div>
-      <div class="menu-item">
-        <div class="menu-item-name">Frites Maison</div>
-        <div class="menu-item-price">80 THB</div>
-      </div>
-    </div>
-    <img src="menu.png" alt="Menu French Tacos" class="menu-img" />
-  </section>
-
-  <section>
-    <h2>Notre première boutique</h2>
-    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f3c6cdd3cc19%3A0x8e5e7041cbbe0b05!2sFrench%20Tacos!5e0!3m2!1sfr!2sth!4v1754064888069!5m2!1sfr!2sth" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </section>
-
-  <section>
-    <h2>Notre deuxième boutique</h2>
-    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f32f1843f0dd%3A0x90e97722db2e1c0b!2sFrench%20Tacos!5e0!3m2!1sfr!2sth!4v1754064949205!5m2!1sfr!2sth" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </section>
-
-  <section class="gallery">
-    <img class="gallery-img" src="box.jpg" alt="Tacos maison Lamai" />
-    <img class="gallery-img" src="Frites.jpg" alt="Frites croustillantes" />
-    <img class="gallery-img" src="CheeseSauce.png" alt="Sauce fromagère maison" />
-  </section>
-
-  <section id="english">
+  <section id="content-en" class="hidden">
     <h2>Welcome</h2>
-    <p>
-      Welcome to <strong>Tacos Maison Lamai</strong>, your go-to destination for delicious <strong>homemade French tacos</strong> in Koh Samui...
-    </p>
-    <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank" rel="noopener noreferrer">Order via WhatsApp</a>
+    <p>Welcome to <strong>Tacos Maison Lamai</strong>, your go-to spot for delicious <strong>homemade French tacos</strong> in Koh Samui. Open until 4 AM!</p>
+    <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank">Order via WhatsApp</a>
   </section>
 
-  <section id="thai">
+  <section id="content-th" class="hidden">
     <h2>ยินดีต้อนรับ</h2>
-    <p>
-      ยินดีต้อนรับสู่ <strong>Tacos Maison Lamai</strong> จุดหมายปลายทางของคุณสำหรับ <strong>ทาโก้ฝรั่งเศสโฮมเมด</strong> อร่อย ๆ ที่เกาะสมุย...
-    </p>
-    <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank" rel="noopener noreferrer">สั่งผ่าน WhatsApp</a>
+    <p>ยินดีต้อนรับสู่ <strong>Tacos Maison Lamai</strong> ร้านทาโก้สไตล์ฝรั่งเศสโฮมเมดที่อร่อยที่สุดในเกาะสมุย เปิดถึงตี 4 ทุกวัน!</p>
+    <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank">สั่งอาหารผ่าน WhatsApp</a>
   </section>
 
   <footer>
     &copy; 2025 Tacos Maison Lamai – Site officiel créé par Philippe (21 ans) à Koh Samui 🇹🇭🇫🇷
   </footer>
+
+  <script>
+    function setLang(lang) {
+      document.getElementById('content-fr').classList.add('hidden');
+      document.getElementById('content-en').classList.add('hidden');
+      document.getElementById('content-th').classList.add('hidden');
+      document.getElementById('content-' + lang).classList.remove('hidden');
+    }
+  </script>
 </body>
 </html>
