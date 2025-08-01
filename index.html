@@ -26,8 +26,7 @@
       display: block;
       margin: auto;
     }
-    h1,
-    h2 {
+    h1, h2 {
       color: #ff0080;
       text-align: center;
     }
@@ -36,7 +35,7 @@
       max-width: 1000px;
       margin: auto;
     }
-    /* Galerie d'images corrigée */
+    /* Galerie corrigée */
     .gallery {
       display: flex;
       flex-wrap: wrap;
@@ -56,17 +55,46 @@
     .gallery-img:hover {
       transform: scale(1.05);
     }
-    /* Image menu */
     .menu-img {
       width: 100%;
-      max-width: 1000px;
+      max-width: 600px;
       display: block;
       margin: 20px auto;
       border-radius: 15px;
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     }
-    .whatsapp-btn,
-    .order-now-btn {
+    /* Menu list styles */
+    .menu-list {
+      max-width: 600px;
+      margin: 20px auto;
+      background: #222;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 0, 128, 0.7);
+    }
+    .menu-list h3 {
+      text-align: center;
+      color: #ff66b2;
+      margin-bottom: 15px;
+    }
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #444;
+      font-size: 1.1em;
+    }
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+    .menu-item-name {
+      font-weight: bold;
+      color: #fff;
+    }
+    .menu-item-price {
+      color: #ff0080;
+    }
+    .whatsapp-btn, .order-now-btn {
       display: inline-block;
       margin-top: 15px;
       padding: 12px 24px;
@@ -92,40 +120,6 @@
     a {
       color: #00ccff;
     }
-    blockquote {
-      font-style: italic;
-      margin: 10px auto;
-      padding: 10px;
-      border-left: 5px solid #ff0080;
-      background: #2a2a2a;
-      max-width: 700px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-width: 500px;
-      margin: auto;
-      padding: 20px;
-      background: #2a2a2a;
-      border-radius: 10px;
-    }
-    form input,
-    form textarea {
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      font-size: 1em;
-    }
-    form button {
-      background-color: #ff0080;
-      color: white;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
     iframe.map {
       width: 100%;
       height: 300px;
@@ -145,10 +139,13 @@
         width: 90%;
         max-width: 300px;
       }
+      .menu-list {
+        width: 95%;
+      }
     }
   </style>
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
       const lang = navigator.language || navigator.userLanguage;
       if (lang.startsWith('en')) {
         location.hash = 'english';
@@ -172,25 +169,47 @@
   <section>
     <h2>Bienvenue</h2>
     <p>
-      Bienvenue chez <strong>Tacos Maison Lamai</strong>, votre adresse incontournable pour
-      déguster de délicieux <strong>tacos français faits maison</strong> à Koh Samui...
+      Bienvenue chez <strong>Tacos Maison Lamai</strong>, votre adresse incontournable pour déguster de délicieux <strong>tacos français faits maison</strong> à Koh Samui...
     </p>
-    <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank" rel="noopener noreferrer">
-      Commander sur WhatsApp
-    </a>
+    <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank" rel="noopener noreferrer">Commander sur WhatsApp</a>
+  </section>
 
-    <!-- Carte Google Maps intégrée (deuxième boutique) -->
-    <iframe
-      class="map"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3880.1872820361167!2d100.01451691525218!3d9.531243593783226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x305031ff9404e52f%3A0x3f27a6671a4ee849!2sSecond%20Boutique%20Location!5e0!3m2!1sfr!2sth!4v1690918201234!5m2!1sfr!2sth"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
-    <!--
-      Remplace le src de cet iframe par celui que Google Maps te fournira si besoin,
-      ou garde-le s'il correspond bien à ta deuxième boutique.
-    -->
+  <!-- Section Menu -->
+  <section>
+    <h2>Notre Menu</h2>
+    <div class="menu-list">
+      <div class="menu-item">
+        <div class="menu-item-name">Tacos Classique</div>
+        <div class="menu-item-price">120 THB</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-name">Tacos Fromage</div>
+        <div class="menu-item-price">150 THB</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-name">Tacos Poulet</div>
+        <div class="menu-item-price">160 THB</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-name">Tacos Végétarien</div>
+        <div class="menu-item-price">140 THB</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-name">Frites Maison</div>
+        <div class="menu-item-price">80 THB</div>
+      </div>
+    </div>
+    <img src="menu.png" alt="Menu French Tacos" class="menu-img" />
+  </section>
+
+  <section>
+    <h2>Notre première boutique</h2>
+    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f3c6cdd3cc19%3A0x8e5e7041cbbe0b05!2sFrench%20Tacos!5e0!3m2!1sfr!2sth!4v1754064888069!5m2!1sfr!2sth" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+
+  <section>
+    <h2>Notre deuxième boutique</h2>
+    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f32f1843f0dd%3A0x90e97722db2e1c0b!2sFrench%20Tacos!5e0!3m2!1sfr!2sth!4v1754064949205!5m2!1sfr!2sth" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </section>
 
   <section class="gallery">
@@ -202,23 +221,17 @@
   <section id="english">
     <h2>Welcome</h2>
     <p>
-      Welcome to <strong>Tacos Maison Lamai</strong>, your go-to destination for delicious
-      <strong>homemade French tacos</strong> in Koh Samui...
+      Welcome to <strong>Tacos Maison Lamai</strong>, your go-to destination for delicious <strong>homemade French tacos</strong> in Koh Samui...
     </p>
-    <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank" rel="noopener noreferrer">
-      Order via WhatsApp
-    </a>
+    <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank" rel="noopener noreferrer">Order via WhatsApp</a>
   </section>
 
   <section id="thai">
     <h2>ยินดีต้อนรับ</h2>
     <p>
-      ยินดีต้อนรับสู่ <strong>Tacos Maison Lamai</strong> จุดหมายปลายทางของคุณสำหรับ
-      <strong>ทาโก้ฝรั่งเศสโฮมเมด</strong> อร่อย ๆ ที่เกาะสมุย...
+      ยินดีต้อนรับสู่ <strong>Tacos Maison Lamai</strong> จุดหมายปลายทางของคุณสำหรับ <strong>ทาโก้ฝรั่งเศสโฮมเมด</strong> อร่อย ๆ ที่เกาะสมุย...
     </p>
-    <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank" rel="noopener noreferrer">
-      สั่งผ่าน WhatsApp
-    </a>
+    <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank" rel="noopener noreferrer">สั่งผ่าน WhatsApp</a>
   </section>
 
   <footer>
