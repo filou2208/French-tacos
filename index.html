@@ -1,87 +1,441 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Tacos français faits maison à Lamai, Koh Samui. Ouvert jusqu'à 4h du matin. Venez déguster la meilleure street food nocturne face au Speed Bar !">
-  <meta name="keywords" content="tacos maison Lamai, French tacos Koh Samui, street food Lamai, restaurant ouvert tard Koh Samui, tacos français Koh Samui, où manger la nuit Lamai, tacos Koh Samui 4h du matin, late night food Lamai">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Tacos français faits maison à Lamai, Koh Samui. Ouvert jusqu'à 4h du matin. Venez déguster la meilleure street food nocturne face au Speed Bar !" />
+  <meta name="keywords" content="tacos maison Lamai, French tacos Koh Samui, street food Lamai, restaurant ouvert tard Koh Samui, tacos français Koh Samui, où manger la nuit Lamai, tacos Koh Samui 4h du matin, late night food Lamai" />
   <title>Tacos Maison Lamai | Ouvert jusqu'à 4h</title>
+
   <style>
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #1a1a1a; color: #fff; line-height: 1.6; }
-    header { background: #000; padding: 20px; text-align: center; }
-    header img { max-width: 150px; display: block; margin: auto; }
-    h1, h2, h3 { color: #ff0080; text-align: center; }
-    section { padding: 20px; max-width: 1000px; margin: auto; }
-    .lang-switch { text-align: center; padding: 10px; background: #222; }
-    .lang-switch a { color: #00ccff; margin: 0 10px; cursor: pointer; }
-    .whatsapp-btn { display: inline-block; margin-top: 15px; padding: 12px 24px; background-color: #25D366; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; text-align: center; }
-    .menu { background: #222; padding: 20px; border-radius: 10px; margin-top: 20px; }
-    .menu-item { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #333; }
-    .menu-item:last-child { border-bottom: none; }
-    .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
-    .gallery-img {
-      max-width: 300px;
-      width: 100%;
-      height: auto;
+    /* RESET BASIQUE */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #1a1a1a;
+      color: #fff;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: #000;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(255, 0, 128, 0.7);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header img {
+      max-width: 150px;
+      display: block;
+      margin: 0 auto 10px;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #ff0080;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-weight: 600;
+      color: #f48fb1;
+    }
+
+    .lang-switch {
+      text-align: center;
+      background: #222;
+      padding: 12px 0;
+      margin-top: 5px;
+    }
+
+    .lang-switch a {
+      color: #00ccff;
+      margin: 0 15px;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.1rem;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+
+    .lang-switch a:hover {
+      color: #ff0080;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      color: #ff0080;
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 2rem;
+      letter-spacing: 1.5px;
+    }
+
+    /* MENU */
+
+    .menu {
+      background: #222;
       border-radius: 12px;
-      box-shadow: 0 0 10px rgba(255,0,128,0.5);
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(255, 0, 128, 0.4);
+      margin-bottom: 30px;
+    }
+
+    .menu h3 {
+      margin-top: 0;
+      color: #ff66b2;
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .menu img {
+      display: block;
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 0 auto 25px;
+      box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+    }
+
+    .menu-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .menu-item {
+      background: #1f1f1f;
+      flex: 1 1 200px;
+      padding: 15px 20px;
+      border-radius: 10px;
+      box-shadow: inset 0 0 10px #ff0080;
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      color: #ffb3d9;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .menu-item:hover {
+      background-color: #ff0080;
+      color: white;
+    }
+
+    /* GALERIE */
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .gallery-item {
+      width: 300px;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 0, 128, 0.5);
+      cursor: pointer;
       transition: transform 0.3s ease;
+      background: #000;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ff0080;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
+      display: block;
     }
-    .gallery-img:hover { transform: scale(1.05); }
-    iframe.map { width: 100%; height: 300px; border: none; border-radius: 10px; margin-top: 30px; }
-    .map-caption { text-align: center; color: #ccc; margin-top: 10px; font-style: italic; }
-    .hidden { display: none; }
+
+    /* BOUTON COMMANDER */
+
+    .order-btn-wrapper {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .order-btn {
+      display: inline-block;
+      background-color: #25D366;
+      color: white;
+      padding: 15px 35px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(37, 211, 102, 0.7);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+
+    .order-btn:hover {
+      background-color: #1ebe56;
+      box-shadow: 0 6px 14px rgba(29, 179, 81, 0.9);
+    }
+
+    /* GOOGLE MAPS */
+
+    iframe.map {
+      width: 100%;
+      max-width: 1000px;
+      height: 350px;
+      border: none;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 15px rgba(255, 0, 128, 0.6);
+      transition: box-shadow 0.3s ease;
+    }
+
+    iframe.map:hover {
+      box-shadow: 0 0 25px #ff0080;
+    }
+
+    .map-caption {
+      color: #ccc;
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 0.9rem;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      user-select: none;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 700px) {
+      .gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .gallery-item {
+        width: 90vw;
+        height: 220px;
+      }
+
+      .menu-list {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .menu-item {
+        justify-content: space-between;
+      }
+    }
   </style>
+
   <script>
+    // Gestion simple du changement de langue en affichant la section correspondante
     function setLang(lang) {
-      document.getElementById('fr').classList.add('hidden');
-      document.getElementById('en').classList.add('hidden');
-      document.getElementById('th').classList.add('hidden');
-      document.getElementById(lang).classList.remove('hidden');
-      localStorage.setItem('preferredLang', lang);
-      window.scrollTo(0, 0);
+      const langs = ['fr', 'en', 'th'];
+      langs.forEach(l => {
+        document.getElementById(l).style.display = (l === lang) ? 'block' : 'none';
+      });
+      // Garde la langue choisie en localStorage
+      localStorage.setItem('lang', lang);
+      // Scroll en haut
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    document.addEventListener('DOMContentLoaded', () => {
-      const lang = localStorage.getItem('preferredLang') || 'fr';
-      setLang(lang);
-    });
+
+    window.onload = () => {
+      const savedLang = localStorage.getItem('lang');
+      if(savedLang && ['fr','en','th'].includes(savedLang)) {
+        setLang(savedLang);
+      } else {
+        // Choix selon navigateur par défaut
+        const userLang = navigator.language || navigator.userLanguage;
+        if(userLang.startsWith('th')) setLang('th');
+        else if(userLang.startsWith('en')) setLang('en');
+        else setLang('fr');
+      }
+    };
   </script>
 </head>
+
 <body>
   <header>
-    <img src="Logo French Tacos.png" alt="Logo French Tacos">
+    <img src="Logo French Tacos.png" alt="Logo French Tacos" />
     <h1>Tacos Maison Lamai</h1>
     <p>Tacos français faits maison – Ouvert jusqu'à 4h du matin</p>
   </header>
 
-  <div class="lang-switch">
-    <a onclick="setLang('fr')">FR</a> | <a onclick="setLang('en')">EN</a> | <a onclick="setLang('th')">TH</a>
-  </div>
+  <nav class="lang-switch" aria-label="Choix de la langue">
+    <a onclick="setLang('fr')" href="#fr">FR</a> |
+    <a onclick="setLang('en')" href="#en">EN</a> |
+    <a onclick="setLang('th')" href="#th">TH</a>
+  </nav>
 
   <!-- FRANÇAIS -->
   <section id="fr">
     <h2>Bienvenue</h2>
     <p>Bienvenue chez <strong>Tacos Maison Lamai</strong>, votre adresse incontournable pour déguster de délicieux <strong>tacos français faits maison</strong> à Koh Samui. Ouvert jusqu'à 4h du matin !</p>
+
     <div class="menu">
       <h3>Notre Menu</h3>
-      <img class="gallery-img" src="menu.png" alt="Menu complet">
-      <div class="menu-item"><span>Tacos Classique</span><span>120 THB</span></div>
-      <div class="menu-item"><span>Tacos Fromage</span><span>150 THB</span></div>
-      <div class="menu-item"><span>Tacos Poulet</span><span>160 THB</span></div>
-      <div class="menu-item"><span>Tacos Végétarien</span><span>140 THB</span></div>
-      <div class="menu-item"><span>Frites Maison</span><span>80 THB</span></div>
+      <img src="menu.png" alt="Menu French Tacos complet" />
+      <div class="menu-list">
+        <div class="menu-item"><span>Tacos Classique</span><span>120 THB</span></div>
+        <div class="menu-item"><span>Tacos Fromage</span><span>150 THB</span></div>
+        <div class="menu-item"><span>Tacos Poulet</span><span>160 THB</span></div>
+        <div class="menu-item"><span>Tacos Végétarien</span><span>140 THB</span></div>
+        <div class="menu-item"><span>Frites Maison</span><span>80 THB</span></div>
+      </div>
     </div>
+
     <div class="gallery">
-      <img class="gallery-img" src="tacos.jpg" alt="Tacos maison">
-      <img class="gallery-img" src="french fries.jpg" alt="Frites croustillantes">
-      <img class="gallery-img" src="CheeseSauce.png" alt="Sauce fromagère maison">
+      <div class="gallery-item"><img src="tacos.jpg" alt="Tacos maison" /></div>
+      <div class="gallery-item"><img src="french fries.jpg" alt="Frites croustillantes" /></div>
+      <div class="gallery-item"><img src="CheeseSauce.png" alt="Sauce fromagère maison" /></div>
     </div>
-    <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank">Commander sur WhatsApp</a>
-    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f3c6cdd3cc19%3A0x8e5e7041cbbe0b05!2sFrench%20Tacos!5e0!3m2!1sfr!2sth!4v1754064888069!5m2!1sfr!2sth"></iframe>
+
+    <div class="order-btn-wrapper">
+      <a class="order-btn" href="https://wa.me/66612345678" target="_blank" rel="noopener noreferrer">Commander sur WhatsApp</a>
+    </div>
+
+    <iframe
+      class="map"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f3c6cdd3cc19%3A0x8e5e7041cbbe0b05!2sFrench%20Tacos!5e0!3m2!1sfr!2sth!4v1754064888069!5m2!1sfr!2sth"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
     <p class="map-caption">1re boutique – French Tacos face au Speed Bar</p>
-    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f32f1843f0dd%3A0x90e97722db2e1c0b!2sFrench%20Tacos!5e0!3m2!1sfr!2sth!4v1754064949205!5m2!1sfr!2sth"></iframe>
+
+    <iframe
+      class="map"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f32f1843f0dd%3A0x90e97722db2e1c0b!2sFrench%20Tacos!5e0!3m2!1sfr!2sth!4v1754064949205!5m2!1sfr!2sth"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
     <p class="map-caption">2e boutique – French Tacos Lamai (second emplacement)</p>
+  </section>
+
+  <!-- ENGLISH -->
+  <section id="en" style="display:none;">
+    <h2>Welcome</h2>
+    <p>Welcome to <strong>Tacos Maison Lamai</strong>, your go-to place for delicious <strong>homemade French tacos</strong> in Koh Samui. Open until 4 AM!</p>
+
+    <div class="menu">
+      <h3>Our Menu</h3>
+      <img src="menu.png" alt="Complete French Tacos menu" />
+      <div class="menu-list">
+        <div class="menu-item"><span>Classic Taco</span><span>120 THB</span></div>
+        <div class="menu-item"><span>Cheese Taco</span><span>150 THB</span></div>
+        <div class="menu-item"><span>Chicken Taco</span><span>160 THB</span></div>
+        <div class="menu-item"><span>Vegetarian Taco</span><span>140 THB</span></div>
+        <div class="menu-item"><span>Homemade Fries</span><span>80 THB</span></div>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <div class="gallery-item"><img src="tacos.jpg" alt="Homemade tacos" /></div>
+      <div class="gallery-item"><img src="french fries.jpg" alt="Crispy fries" /></div>
+      <div class="gallery-item"><img src="CheeseSauce.png" alt="Cheese sauce" /></div>
+    </div>
+
+    <div class="order-btn-wrapper">
+      <a class="order-btn" href="https://wa.me/66612345678" target="_blank" rel="noopener noreferrer">Order on WhatsApp</a>
+    </div>
+
+    <iframe
+      class="map"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f3c6cdd3cc19%3A0x8e5e7041cbbe0b05!2sFrench%20Tacos!5e0!3m2!1sen!2sth!4v1754064888069!5m2!1sen!2sth"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+    <p class="map-caption">1st location – French Tacos opposite Speed Bar</p>
+
+    <iframe
+      class="map"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f32f1843f0dd%3A0x90e97722db2e1c0b!2sFrench%20Tacos!5e0!3m2!1sen!2sth!4v1754064949205!5m2!1sen!2sth"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+    <p class="map-caption">2nd location – French Tacos Lamai (second spot)</p>
+  </section>
+
+  <!-- THAI -->
+  <section id="th" style="display:none;">
+    <h2>ยินดีต้อนรับ</h2>
+    <p>ยินดีต้อนรับสู่ <strong>Tacos Maison Lamai</strong> จุดหมายปลายทางของคุณสำหรับ <strong>ทาโก้ฝรั่งเศสโฮมเมด</strong> อร่อย ๆ ที่เกาะสมุย เปิดจนถึงตี 4!</p>
+
+    <div class="menu">
+      <h3>เมนูของเรา</h3>
+      <img src="menu.png" alt="เมนู French Tacos ครบถ้วน" />
+      <div class="menu-list">
+        <div class="menu-item"><span>ทาโก้คลาสสิก</span><span>120 บาท</span></div>
+        <div class="menu-item"><span>ทาโก้ชีส</span><span>150 บาท</span></div>
+        <div class="menu-item"><span>ทาโก้ไก่</span><span>160 บาท</span></div>
+        <div class="menu-item"><span>ทาโก้มังสวิรัติ</span><span>140 บาท</span></div>
+        <div class="menu-item"><span>เฟรนช์ฟรายส์โฮมเมด</span><span>80 บาท</span></div>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <div class="gallery-item"><img src="tacos.jpg" alt="ทาโก้โฮมเมด" /></div>
+      <div class="gallery-item"><img src="french fries.jpg" alt="เฟรนช์ฟรายส์กรอบ" /></div>
+      <div class="gallery-item"><img src="CheeseSauce.png" alt="ซอสชีส" /></div>
+    </div>
+
+    <div class="order-btn-wrapper">
+      <a class="order-btn" href="https://wa.me/66612345678" target="_blank" rel="noopener noreferrer">สั่งผ่าน WhatsApp</a>
+    </div>
+
+    <iframe
+      class="map"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f3c6cdd3cc19%3A0x8e5e7041cbbe0b05!2sFrench%20Tacos!5e0!3m2!1sth!2sth!4v1754064888069!5m2!1sth!2sth"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+    <p class="map-caption">ร้านแรก – French Tacos ตรงข้าม Speed Bar</p>
+
+    <iframe
+      class="map"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f32f1843f0dd%3A0x90e97722db2e1c0b!2sFrench%20Tacos!5e0!3m2!1sth!2sth!4v1754064949205!5m2!1sth!2sth"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+    <p class="map-caption">ร้านที่สอง – French Tacos Lamai (สาขาที่สอง)</p>
   </section>
 
   <footer>
