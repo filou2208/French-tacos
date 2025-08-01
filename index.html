@@ -26,7 +26,7 @@
       display: block;
       margin: auto;
     }
-    h1, h2 {
+    h1, h2, h3 {
       color: #ff0080;
       text-align: center;
     }
@@ -57,6 +57,31 @@
       text-align: center;
     }
     .hidden { display: none; }
+    .menu-list {
+      max-width: 600px;
+      margin: 20px auto;
+      background: #222;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 0, 128, 0.7);
+    }
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #444;
+      font-size: 1.1em;
+    }
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+    .menu-item-name {
+      font-weight: bold;
+      color: #fff;
+    }
+    .menu-item-price {
+      color: #ff0080;
+    }
   </style>
 </head>
 <body>
@@ -73,18 +98,42 @@
   <section id="content-fr">
     <h2>Bienvenue</h2>
     <p>Bienvenue chez <strong>Tacos Maison Lamai</strong>, votre adresse incontournable pour déguster de délicieux <strong>tacos français faits maison</strong> à Koh Samui. Ouvert jusqu'à 4h du matin !</p>
+    <h3>Notre Menu</h3>
+    <div class="menu-list">
+      <div class="menu-item"><div class="menu-item-name">Tacos Classique</div><div class="menu-item-price">120 THB</div></div>
+      <div class="menu-item"><div class="menu-item-name">Tacos Fromage</div><div class="menu-item-price">150 THB</div></div>
+      <div class="menu-item"><div class="menu-item-name">Tacos Poulet</div><div class="menu-item-price">160 THB</div></div>
+      <div class="menu-item"><div class="menu-item-name">Tacos Végétarien</div><div class="menu-item-price">140 THB</div></div>
+      <div class="menu-item"><div class="menu-item-name">Frites Maison</div><div class="menu-item-price">80 THB</div></div>
+    </div>
     <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank">Commander sur WhatsApp</a>
   </section>
 
   <section id="content-en" class="hidden">
     <h2>Welcome</h2>
     <p>Welcome to <strong>Tacos Maison Lamai</strong>, your go-to spot for delicious <strong>homemade French tacos</strong> in Koh Samui. Open until 4 AM!</p>
+    <h3>Our Menu</h3>
+    <div class="menu-list">
+      <div class="menu-item"><div class="menu-item-name">Classic Tacos</div><div class="menu-item-price">120 THB</div></div>
+      <div class="menu-item"><div class="menu-item-name">Cheese Tacos</div><div class="menu-item-price">150 THB</div></div>
+      <div class="menu-item"><div class="menu-item-name">Chicken Tacos</div><div class="menu-item-price">160 THB</div></div>
+      <div class="menu-item"><div class="menu-item-name">Vegetarian Tacos</div><div class="menu-item-price">140 THB</div></div>
+      <div class="menu-item"><div class="menu-item-name">Homemade Fries</div><div class="menu-item-price">80 THB</div></div>
+    </div>
     <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank">Order via WhatsApp</a>
   </section>
 
   <section id="content-th" class="hidden">
     <h2>ยินดีต้อนรับ</h2>
     <p>ยินดีต้อนรับสู่ <strong>Tacos Maison Lamai</strong> ร้านทาโก้สไตล์ฝรั่งเศสโฮมเมดที่อร่อยที่สุดในเกาะสมุย เปิดถึงตี 4 ทุกวัน!</p>
+    <h3>เมนู</h3>
+    <div class="menu-list">
+      <div class="menu-item"><div class="menu-item-name">ทาโก้คลาสสิก</div><div class="menu-item-price">120 บาท</div></div>
+      <div class="menu-item"><div class="menu-item-name">ทาโก้ชีส</div><div class="menu-item-price">150 บาท</div></div>
+      <div class="menu-item"><div class="menu-item-name">ทาโก้ไก่ไก</div><div class="menu-item-price">160 บาท</div></div>
+      <div class="menu-item"><div class="menu-item-name">ทาโก้มังเสริม</div><div class="menu-item-price">140 บาท</div></div>
+      <div class="menu-item"><div class="menu-item-name">มันฟรายส์โฮมเมด</div><div class="menu-item-price">80 บาท</div></div>
+    </div>
     <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank">สั่งอาหารผ่าน WhatsApp</a>
   </section>
 
