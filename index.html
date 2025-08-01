@@ -1,37 +1,154 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Tacos français faits maison à Lamai, Koh Samui. Ouvert jusqu'à 4h du matin. Venez déguster la meilleure street food nocturne face au Speed Bar !">
-  <meta name="keywords" content="tacos maison Lamai, French tacos Koh Samui, street food Lamai, restaurant ouvert tard Koh Samui, tacos français Koh Samui, où manger la nuit Lamai, tacos Koh Samui 4h du matin, late night food Lamai">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Tacos français faits maison à Lamai, Koh Samui. Ouvert jusqu'à 4h du matin. Venez déguster la meilleure street food nocturne face au Speed Bar !" />
+  <meta name="keywords" content="tacos maison Lamai, French tacos Koh Samui, street food Lamai, restaurant ouvert tard Koh Samui, tacos français Koh Samui, où manger la nuit Lamai, tacos Koh Samui 4h du matin, late night food Lamai" />
   <meta name="google-site-verification" content="VOTRE_CODE_ICI" />
   <title>Tacos Maison Lamai | Ouvert jusqu'à 4h</title>
   <style>
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #1a1a1a; color: #fff; line-height: 1.6; }
-    header { background: #000; padding: 20px; text-align: center; }
-    header img { max-width: 150px; display: block; margin: auto; }
-    h1, h2 { color: #ff0080; text-align: center; }
-    section { padding: 20px; max-width: 1000px; margin: auto; }
-    .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-    .gallery img { max-width: 100%; border-radius: 12px; box-shadow: 0 0 10px rgba(255, 0, 128, 0.5); }
-    .menu-img { width: 100%; max-width: 1000px; display: block; margin: 20px auto; border-radius: 15px; box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); }
-    .whatsapp-btn, .order-now-btn { display: inline-block; margin-top: 15px; padding: 12px 24px; background-color: #25D366; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; text-align: center; }
-    footer { background: #111; text-align: center; padding: 20px; font-size: 0.9em; color: #ccc; }
-    .lang-switch { text-align: center; padding: 10px; background: #222; }
-    a { color: #00ccff; }
-    blockquote { font-style: italic; margin: 10px auto; padding: 10px; border-left: 5px solid #ff0080; background: #2a2a2a; max-width: 700px; }
-    form { display: flex; flex-direction: column; gap: 10px; max-width: 500px; margin: auto; padding: 20px; background: #2a2a2a; border-radius: 10px; }
-    form input, form textarea { padding: 10px; border: none; border-radius: 5px; font-size: 1em; }
-    form button { background-color: #ff0080; color: white; padding: 10px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
-    iframe.map { width: 100%; height: 300px; border: none; border-radius: 10px; margin-top: 10px; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #1a1a1a;
+      color: #fff;
+      line-height: 1.6;
+    }
+    header {
+      background: #000;
+      padding: 20px;
+      text-align: center;
+    }
+    header img {
+      max-width: 150px;
+      display: block;
+      margin: auto;
+    }
+    h1,
+    h2 {
+      color: #ff0080;
+      text-align: center;
+    }
+    section {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    /* Galerie d'images corrigée */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    .gallery-img {
+      width: 300px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+      transition: transform 0.3s ease;
+      object-fit: cover;
+    }
+    .gallery-img:hover {
+      transform: scale(1.05);
+    }
+    /* Image menu */
+    .menu-img {
+      width: 100%;
+      max-width: 1000px;
+      display: block;
+      margin: 20px auto;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+    .whatsapp-btn,
+    .order-now-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 24px;
+      background-color: #25d366;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+    }
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+    .lang-switch {
+      text-align: center;
+      padding: 10px;
+      background: #222;
+    }
+    a {
+      color: #00ccff;
+    }
+    blockquote {
+      font-style: italic;
+      margin: 10px auto;
+      padding: 10px;
+      border-left: 5px solid #ff0080;
+      background: #2a2a2a;
+      max-width: 700px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+      background: #2a2a2a;
+      border-radius: 10px;
+    }
+    form input,
+    form textarea {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+    form button {
+      background-color: #ff0080;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    iframe.map {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
     @media (max-width: 600px) {
-      .gallery { flex-direction: column; align-items: center; }
-      .menu-img { width: 95%; }
+      .gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+      .menu-img {
+        width: 95%;
+      }
+      .gallery-img {
+        width: 90%;
+        max-width: 300px;
+      }
     }
   </style>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const lang = navigator.language || navigator.userLanguage;
       if (lang.startsWith('en')) {
         location.hash = 'english';
@@ -43,7 +160,7 @@
 </head>
 <body>
   <header>
-    <img src="Logo French Tacos.png" alt="Logo French Tacos">
+    <img src="Logo French Tacos.png" alt="Logo French Tacos" />
     <h1>Tacos Maison Lamai</h1>
     <p>Tacos français faits maison – Ouvert jusqu'à 4h du matin</p>
   </header>
@@ -54,22 +171,57 @@
 
   <section>
     <h2>Bienvenue</h2>
-    <p>Bienvenue chez <strong>Tacos Maison Lamai</strong>, votre adresse incontournable pour déguster de délicieux <strong>tacos français faits maison</strong> à Koh Samui...</p>
-    <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank">Commander sur WhatsApp</a>
+    <p>
+      Bienvenue chez <strong>Tacos Maison Lamai</strong>, votre adresse incontournable pour
+      déguster de délicieux <strong>tacos français faits maison</strong> à Koh Samui...
+    </p>
+    <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank" rel="noopener noreferrer">
+      Commander sur WhatsApp
+    </a>
+
+    <!-- Carte Google Maps intégrée -->
+    <iframe
+      class="map"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.2598036339377!2d99.97107071524698!3d9.53324579293707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x305031da764a2e01%3A0x7f2a8f63b04f9e44!2sSpeed%20Bar%20Lamai!5e0!3m2!1sfr!2sth!4v1690917605918!5m2!1sfr!2sth"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+    <!--
+      Remplace cette iframe par celle de ta boutique exacte :
+      1. Va sur Google Maps
+      2. Cherche ta boutique
+      3. Clique sur Partager > Intégrer une carte
+      4. Copie le code iframe et colle-le ici en remplaçant cette iframe
+    -->
   </section>
 
-  <!-- Menu, map, gallery, reviews, contact, social links stay as is -->
+  <section class="gallery">
+    <img class="gallery-img" src="box.jpg" alt="Tacos maison Lamai" />
+    <img class="gallery-img" src="Frites.jpg" alt="Frites croustillantes" />
+    <img class="gallery-img" src="CheeseSauce.png" alt="Sauce fromagère maison" />
+  </section>
 
   <section id="english">
     <h2>Welcome</h2>
-    <p>Welcome to <strong>Tacos Maison Lamai</strong>, your go-to destination for delicious <strong>homemade French tacos</strong> in Koh Samui...</p>
-    <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank">Order via WhatsApp</a>
+    <p>
+      Welcome to <strong>Tacos Maison Lamai</strong>, your go-to destination for delicious
+      <strong>homemade French tacos</strong> in Koh Samui...
+    </p>
+    <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank" rel="noopener noreferrer">
+      Order via WhatsApp
+    </a>
   </section>
 
   <section id="thai">
     <h2>ยินดีต้อนรับ</h2>
-    <p>ยินดีต้อนรับสู่ <strong>Tacos Maison Lamai</strong> จุดหมายปลายทางของคุณสำหรับ <strong>ทาโก้ฝรั่งเศสโฮมเมด</strong> อร่อย ๆ ที่เกาะสมุย...</p>
-    <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank">สั่งผ่าน WhatsApp</a>
+    <p>
+      ยินดีต้อนรับสู่ <strong>Tacos Maison Lamai</strong> จุดหมายปลายทางของคุณสำหรับ
+      <strong>ทาโก้ฝรั่งเศสโฮมเมด</strong> อร่อย ๆ ที่เกาะสมุย...
+    </p>
+    <a class="whatsapp-btn" href="https://wa.me/66612345678" target="_blank" rel="noopener noreferrer">
+      สั่งผ่าน WhatsApp
+    </a>
   </section>
 
   <footer>
