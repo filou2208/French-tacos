@@ -77,6 +77,14 @@
       max-width: 1000px;
       margin: 30px auto;
       padding: 0 20px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h2 {
@@ -233,6 +241,32 @@
       font-size: 0.9rem;
       letter-spacing: 0.03em;
       user-select: none;
+      position: relative;
+    }
+
+    /* BOUTON BACK TO TOP */
+
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #ff0080;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(255, 0, 128, 0.7);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 100;
+    }
+
+    #backToTop.show {
+      opacity: 1;
+      visibility: visible;
     }
 
     /* RESPONSIVE */
@@ -272,6 +306,21 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    // Animation fade-in au scroll
+    function handleScrollAnimation() {
+      const sections = document.querySelectorAll('section');
+      const triggerBottom = window.innerHeight * 0.85;
+
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', handleScrollAnimation);
+
     window.onload = () => {
       const savedLang = localStorage.getItem('lang');
       if(savedLang && ['fr','en','th'].includes(savedLang)) {
@@ -283,7 +332,23 @@
         else if(userLang.startsWith('en')) setLang('en');
         else setLang('fr');
       }
+      // Initial call to animation in case user is already scrolled
+      handleScrollAnimation();
     };
+
+    // Back to top button control
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('backToTop');
+      if(window.scrollY > 300) {
+        btn.classList.add('show');
+      } else {
+        btn.classList.remove('show');
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   </script>
 </head>
 
@@ -370,7 +435,7 @@
     </div>
 
     <div class="order-btn-wrapper">
-      <a class="order-btn" href="https://wa.me/66612345678" target="_blank" rel="noopener noreferrer">Order on WhatsApp</a>
+      <a class="order-btn" href="https://wa.me/66612345678" target="_blank" rel="noopener noreferrer">Order via WhatsApp</a>
     </div>
 
     <iframe
@@ -380,7 +445,7 @@
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
     ></iframe>
-    <p class="map-caption">1st location – French Tacos opposite Speed Bar</p>
+    <p class="map-caption">1st Store – French Tacos opposite Speed Bar</p>
 
     <iframe
       class="map"
@@ -389,17 +454,17 @@
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
     ></iframe>
-    <p class="map-caption">2nd location – French Tacos Lamai (second spot)</p>
+    <p class="map-caption">2nd Store – French Tacos Lamai (second location)</p>
   </section>
 
   <!-- THAI -->
   <section id="th" style="display:none;">
     <h2>ยินดีต้อนรับ</h2>
-    <p>ยินดีต้อนรับสู่ <strong>Tacos Maison Lamai</strong> จุดหมายปลายทางของคุณสำหรับ <strong>ทาโก้ฝรั่งเศสโฮมเมด</strong> อร่อย ๆ ที่เกาะสมุย เปิดจนถึงตี 4!</p>
+    <p>ยินดีต้อนรับสู่ <strong>Tacos Maison Lamai</strong> จุดหมายปลายทางของคุณสำหรับ <strong>ทาโก้ฝรั่งเศสโฮมเมด</strong> อร่อย ๆ ที่เกาะสมุย เปิดถึงตี 4!</p>
 
     <div class="menu">
       <h3>เมนูของเรา</h3>
-      <img src="menu.png" alt="เมนู French Tacos ครบถ้วน" />
+      <img src="menu.png" alt="เมนู French Tacos" />
       <div class="menu-list">
         <div class="menu-item"><span>ทาโก้คลาสสิก</span><span>120 บาท</span></div>
         <div class="menu-item"><span>ทาโก้ชีส</span><span>150 บาท</span></div>
@@ -441,5 +506,7 @@
   <footer>
     &copy; 2025 Tacos Maison Lamai – Site officiel créé par Philippe (21 ans) à Koh Samui 🇹🇭🇫🇷
   </footer>
+
+  <button id="backToTop" aria-label="Retour en haut" onclick="scrollToTop()">↑</button>
 </body>
 </html>
