@@ -76,9 +76,6 @@
       padding: 40px 20px;
       border-top: 2px solid #ff0080;
     }
-    .reviews h2 {
-      margin-bottom: 30px;
-    }
     .review-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -89,20 +86,7 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(255, 0, 128, 0.2);
-      animation: fadeIn 1s ease forwards;
-      opacity: 0;
     }
-    .review-card:nth-child(1) { animation-delay: 0.1s; }
-    .review-card:nth-child(2) { animation-delay: 0.2s; }
-    .review-card:nth-child(3) { animation-delay: 0.3s; }
-    .review-card:nth-child(4) { animation-delay: 0.4s; }
-    .review-card:nth-child(5) { animation-delay: 0.5s; }
-
-    @keyframes fadeIn {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
     .review-text {
       font-style: italic;
     }
@@ -111,11 +95,18 @@
       font-size: 0.9em;
       color: #ccc;
     }
-    footer {
-      margin-top: auto;
-      font-size: 0.9em;
-      color: #ccc;
+    .show-more-btn {
+      margin: 30px auto 0;
+      display: block;
+      padding: 12px 24px;
+      background: #ff0080;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
     }
+    .hidden { display: none; }
   </style>
 </head>
 <body>
@@ -148,28 +139,18 @@
 
   <section class="reviews">
     <h2>Ce que disent nos clients ⭐️⭐️⭐️⭐️⭐️</h2>
-    <div class="review-grid">
-      <div class="review-card">
-        <p class="review-text">"Un vrai délice, je recommande vivement à tous ceux qui n'ont jamais goûté !"</p>
-        <p class="review-author">– 028 Sarawut (il y a 1 jour)</p>
-      </div>
-      <div class="review-card">
-        <p class="review-text">"Les tacos français sont vraiment délicieux. Phillip est tellement mignon !"</p>
-        <p class="review-author">– Nanthanawan Nenejung (il y a 1 jour)</p>
-      </div>
-      <div class="review-card">
-        <p class="review-text">"Un goût incroyable, la meilleure cuisine du monde. Le propriétaire est très sympathique !"</p>
-        <p class="review-author">– อุทุมพร ทวยเจริญ (il y a 1 jour)</p>
-      </div>
-      <div class="review-card">
-        <p class="review-text">"Excellente adresse, tout est délicieux, frais et servi avec le sourire."</p>
-        <p class="review-author">– Sébastien Jacquemotte (il y a 6 mois)</p>
-      </div>
-      <div class="review-card">
-        <p class="review-text">"Les plats sont préparés avec des ingrédients de qualité. Je recommande vivement !"</p>
-        <p class="review-author">– Sharon Perets (il y a 6 mois)</p>
-      </div>
+    <div class="review-grid" id="reviewGrid">
+      <div class="review-card"><p class="review-text">"Un vrai délice, je recommande vivement à tous ceux qui n'ont jamais goûté !"</p><p class="review-author">– 028 Sarawut</p></div>
+      <div class="review-card"><p class="review-text">"Les tacos français sont vraiment délicieux. Phillip est tellement mignon !"</p><p class="review-author">– Nanthanawan Nenejung</p></div>
+      <div class="review-card"><p class="review-text">"Très bien. Cuisine : 5. Service impeccable."</p><p class="review-author">– Bmbm Bmbm</p></div>
+      <div class="review-card"><p class="review-text">"Bons tacos🌮 et bon service 💁🏻‍♂️"</p><p class="review-author">– Tor Aiamcharoen</p></div>
+      <div class="review-card"><p class="review-text">"Un goût incroyable, la meilleure cuisine du monde et le propriétaire est très sympathique."</p><p class="review-author">– อุทุมพร ทวยเจริญ</p></div>
+      <div class="review-card"><p class="review-text">"Les tacos étaient très savoureux ❤️🥰"</p><p class="review-author">– ณณฐกร ชนสุธรรม</p></div>
+      <div class="review-card hidden"><p class="review-text">"C'est la première fois que j'essaie les tacos français et j'adore !! 😊🙏"</p><p class="review-author">– 05-กนกกาญจน์ หวังผล</p></div>
+      <div class="review-card hidden"><p class="review-text">"Excellente cuisine et ambiance décontractée, idéale pour un déjeuner."</p><p class="review-author">– Sharon Perets</p></div>
+      <div class="review-card hidden"><p class="review-text">"La nourriture était incroyable et c'était aussi une très bonne portion !"</p><p class="review-author">– Panna Czégény</p></div>
     </div>
+    <button class="show-more-btn" onclick="showMoreReviews()">Voir tous les avis</button>
   </section>
 
   <footer>
@@ -177,6 +158,11 @@
   </footer>
 
   <script>
+    function showMoreReviews() {
+      const hiddenReviews = document.querySelectorAll('.review-card.hidden');
+      hiddenReviews.forEach(el => el.classList.remove('hidden'));
+      document.querySelector('.show-more-btn').style.display = 'none';
+    }
     window.onload = function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
