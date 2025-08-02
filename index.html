@@ -2,14 +2,13 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Tacos français faits maison à Lamai, Koh Samui. Ouvert jusqu'à 4h du matin. Venez déguster la meilleure street food nocturne face au Speed Bar !" />
   <title>Tacos Maison Lamai | Avis Clients</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       background: #1a1a1a;
       color: #fff;
       display: flex;
@@ -24,6 +23,10 @@
     h1, h2 {
       color: #ff0080;
       text-align: center;
+      margin: 0 0 10px 0;
+    }
+    p.subtitle {
+      margin: 0 0 15px 0;
     }
     section {
       padding: 20px;
@@ -32,7 +35,7 @@
     }
     section img.menu-img, section img[src="menu.png"] {
       width: 100%;
-      max-width: 1000px;
+      max-width: 1050px;
       display: block;
       margin: 0 auto 20px auto;
       border-radius: 12px;
@@ -41,7 +44,7 @@
     .order-btn-wrapper {
       text-align: center;
       margin: 0 auto 30px auto;
-      max-width: 900px;
+      max-width: 1050px;
     }
     .order-btn {
       display: inline-block;
@@ -52,23 +55,27 @@
       font-weight: bold;
       text-decoration: none;
       font-size: 1.2em;
+      transition: background-color 0.3s ease;
+    }
+    .order-btn:hover {
+      background-color: #128C7E;
     }
     .gallery {
       display: flex;
       gap: 15px;
       justify-content: center;
-      max-width: 1000px;
+      max-width: 1050px;
       margin: 0 auto 40px auto;
     }
     .gallery-item {
-      flex: 0 0 38%;
+      flex: 1 1 33%;
       overflow: hidden;
       border-radius: 12px;
       box-shadow: 0 0 12px rgba(255, 0, 128, 0.6);
     }
     .gallery-item img {
       width: 100%;
-      height: 240px;
+      height: 260px;
       object-fit: cover;
       transition: transform 0.3s ease;
       display: block;
@@ -98,7 +105,7 @@
       background: #222;
       padding: 40px 20px;
       border-top: 2px solid #ff0080;
-      max-width: 1000px;
+      max-width: 1050px;
       margin: 40px auto 20px auto;
     }
     .review-grid {
@@ -109,7 +116,7 @@
       justify-items: center;
     }
     .review-card {
-      width: 300px;
+      width: 320px;
       padding: 15px;
       background: #2a2a2a;
       border-radius: 10px;
@@ -139,9 +146,12 @@
       cursor: pointer;
       font-weight: bold;
       max-width: 200px;
+      transition: background-color 0.3s ease;
+    }
+    .show-more-btn:hover {
+      background: #e60073;
     }
     .hidden { display: none; }
-
     .scroll-to-top {
       position: fixed;
       bottom: 20px;
@@ -149,31 +159,42 @@
       background: #ff0080;
       color: white;
       border: none;
-      padding: 10px 15px;
+      padding: 12px 16px;
       border-radius: 50%;
-      font-size: 1.5em;
+      font-size: 1.8em;
       cursor: pointer;
       z-index: 1000;
+      box-shadow: 0 0 10px rgba(255, 0, 128, 0.7);
+      transition: background-color 0.3s ease;
     }
-
+    .scroll-to-top:hover {
+      background-color: #e60073;
+    }
     .language-switcher {
       position: fixed;
       top: 20px;
       right: 20px;
       background: #000;
-      border: 1px solid #ff0080;
-      border-radius: 6px;
-      padding: 8px 12px;
+      border: 2px solid #ff0080;
+      border-radius: 8px;
+      padding: 10px 15px;
       font-weight: bold;
-      z-index: 999;
+      z-index: 9999;
+      display: flex;
+      gap: 12px;
     }
     .language-switcher button {
       background: transparent;
       color: white;
       border: none;
       cursor: pointer;
-      margin: 0 4px;
-      font-size: 1em;
+      font-size: 1.2em;
+      font-weight: bold;
+      padding: 4px 10px;
+      transition: color 0.3s ease;
+    }
+    .language-switcher button:hover {
+      color: #ff0080;
     }
 
     @media (max-width: 768px) {
@@ -192,39 +213,131 @@
       .review-grid {
         grid-template-columns: 1fr;
       }
+      .language-switcher {
+        flex-direction: row;
+        top: 10px;
+        right: 10px;
+        padding: 6px 10px;
+        gap: 6px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="language-switcher">
-    <button onclick="setLang('fr')">FR</button>
-    <button onclick="setLang('en')">EN</button>
-    <button onclick="setLang('th')">TH</button>
+    <button onclick="setLang('fr')" id="btn-fr">FR</button>
+    <button onclick="setLang('en')" id="btn-en">EN</button>
+    <button onclick="setLang('th')" id="btn-th">TH</button>
   </div>
 
   <header>
     <img src="Logo French Tacos.png" alt="Logo French Tacos" style="max-width:150px;" />
-    <h1>Tacos Maison Lamai</h1>
-    <p>Tacos français faits maison – Ouvert jusqu'à 4h du matin</p>
+    <h1 data-text-fr="Tacos Maison Lamai" data-text-en="Maison Lamai Tacos" data-text-th="ทาโก้ เมซง ลาไม">Tacos Maison Lamai</h1>
+    <p class="subtitle" data-text-fr="Tacos français faits maison – Ouvert jusqu'à 4h du matin" data-text-en="Homemade French tacos – Open until 4am" data-text-th="ทาโก้ฝรั่งเศสโฮมเมด – เปิดจนถึงตี 4">Tacos français faits maison – Ouvert jusqu'à 4h du matin</p>
   </header>
 
-  <!-- Insérer le contenu principal ici -->
+  <section>
+    <h2 data-text-fr="Notre Menu" data-text-en="Our Menu" data-text-th="เมนูของเรา">Notre Menu</h2>
+    <img src="menu.png" alt="Menu complet" class="menu-img" />
+  </section>
 
-  <button class="scroll-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+  <div class="order-btn-wrapper">
+    <a class="order-btn" href="https://wa.me/66612345678" target="_blank" data-text-fr="Commander sur WhatsApp" data-text-en="Order on WhatsApp" data-text-th="สั่งผ่าน WhatsApp">Commander sur WhatsApp</a>
+  </div>
+
+  <section class="gallery">
+    <div class="gallery-item">
+      <img src="tacos.jpg" alt="Tacos maison" />
+    </div>
+    <div class="gallery-item">
+      <img src="french fries.jpg" alt="Frites croustillantes" />
+    </div>
+    <div class="gallery-item">
+      <img src="CheeseSauce.png" alt="Sauce fromagère" />
+    </div>
+  </section>
+
+  <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f3c6cdd3cc19%3A0x8e5e7041cbbe0b05!2sFrench%20Tacos!5e0!3m2!1sfr!2sth!4v1754064888069!5m2!1sfr!2sth" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <p class="map-caption" data-text-fr="1ère Boutique – Face au Speed Bar" data-text-en="1st Store – Across from Speed Bar" data-text-th="ร้านที่ 1 – ตรงข้าม Speed Bar">1ère Boutique – Face au Speed Bar</p>
+
+  <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f32f1843f0dd%3A0x90e97722db2e1c0b!2sFrench%20Tacos!5e0!3m2!1sfr!2sth!4v1754064949205!5m2!1sfr!2sth" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <p class="map-caption" data-text-fr="2ème Boutique – French Tacos Lamai" data-text-en="2nd Store – French Tacos Lamai" data-text-th="ร้านที่ 2 – French Tacos Lamai">2ème Boutique – French Tacos Lamai</p>
+
+  <section class="reviews">
+    <h2 data-text-fr="Ce que disent nos clients ⭐️⭐️⭐️⭐️⭐️" data-text-en="What Our Customers Say ⭐️⭐️⭐️⭐️⭐️" data-text-th="ความคิดเห็นจากลูกค้า ⭐️⭐️⭐️⭐️⭐️">Ce que disent nos clients ⭐️⭐️⭐️⭐️⭐️</h2>
+    <div class="review-grid" id="reviewGrid">
+      <div class="review-card">
+        <p class="review-text">"Un vrai délice, je recommande vivement à tous ceux qui n'ont jamais goûté !"</p>
+        <p class="review-author">– 028 Sarawut</p>
+      </div>
+      <div class="review-card">
+        <p class="review-text">"Les tacos français sont vraiment délicieux. Phillip est tellement mignon !"</p>
+        <p class="review-author">– Nanthanawan Nenejung</p>
+      </div>
+      <div class="review-card">
+        <p class="review-text">"Très bien. Cuisine : 5. Service impeccable."</p>
+        <p class="review-author">– Bmbm Bmbm</p>
+      </div>
+      <div class="review-card">
+        <p class="review-text">"Bons tacos🌮 et bon service 💁🏻‍♂️"</p>
+        <p class="review-author">– Tor Aiamcharoen</p>
+      </div>
+      <div class="review-card">
+        <p class="review-text">"Un goût incroyable, la meilleure cuisine du monde et le propriétaire est très sympathique."</p>
+        <p class="review-author">– อุทุมพร ทวยเจริญ</p>
+      </div>
+      <div class="review-card">
+        <p class="review-text">"Les tacos étaient très savoureux ❤️🥰"</p>
+        <p class="review-author">– ณณฐกร ชนสุธรรม</p>
+      </div>
+      <div class="review-card hidden">
+        <p class="review-text">"C'est la première fois que j'essaie les tacos français et j'adore !! 😊🙏"</p>
+        <p class="review-author">– 05-กนกกาญจน์ หวังผล</p>
+      </div>
+      <div class="review-card hidden">
+        <p class="review-text">"Excellente cuisine et ambiance décontractée, idéale pour un déjeuner."</p>
+        <p class="review-author">– Sharon Perets</p>
+      </div>
+      <div class="review-card hidden">
+        <p class="review-text">"La nourriture était incroyable et c'était aussi une très bonne portion !"</p>
+        <p class="review-author">– Panna Czégény</p>
+      </div>
+    </div>
+    <button class="show-more-btn" onclick="showMoreReviews()" data-text-fr="Voir tous les avis" data-text-en="See all reviews" data-text-th="ดูรีวิวทั้งหมด">Voir tous les avis</button>
+  </section>
+
+  <button class="scroll-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" title="Remonter en haut">↑</button>
 
   <footer>
     &copy; 2025 Tacos Maison Lamai – Site officiel créé par Philippe (21 ans) à Koh Samui 🇹🇭🇫🇷
   </footer>
 
   <script>
+    // Traduction automatique par bouton
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      const elements = document.querySelectorAll('[data-text-fr]');
+      elements.forEach(el => {
+        const text = el.getAttribute('data-text-' + lang);
+        if(text) el.textContent = text;
+      });
+      // Mettre en surbrillance le bouton actif
+      document.querySelectorAll('.language-switcher button').forEach(btn => {
+        btn.style.color = btn.id === 'btn-' + lang ? '#ff0080' : 'white';
+      });
+    }
+
+    // Montre plus d'avis
     function showMoreReviews() {
       const hiddenReviews = document.querySelectorAll('.review-card.hidden');
       hiddenReviews.forEach(el => el.classList.remove('hidden'));
       document.querySelector('.show-more-btn').style.display = 'none';
     }
 
-    function setLang(lang) {
-      document.documentElement.lang = lang;
+    // Initialisation page
+    window.onload = function() {
+      setLang('fr');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
 </body>
