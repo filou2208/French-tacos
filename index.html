@@ -30,23 +30,32 @@
       max-width: 1000px;
       margin: auto;
     }
+    /* Galerie photos */
     .gallery {
       display: flex;
+      flex-wrap: nowrap;
       justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
+      gap: 10px;
       margin-bottom: 20px;
     }
-    .gallery-item img {
-      width: 320px;
-      height: auto;
+    .gallery-item {
+      flex: 1 1 33%;
+      max-width: 33%;
+      overflow: hidden;
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
       transition: transform 0.3s ease;
     }
     .gallery-item img:hover {
       transform: scale(1.05);
     }
+
     .order-btn-wrapper {
       text-align: center;
       margin-top: 20px;
@@ -59,7 +68,23 @@
       border-radius: 5px;
       font-weight: bold;
       text-decoration: none;
+      transition: background-color 0.3s ease;
     }
+    .order-btn:hover {
+      background-color: #1da851;
+    }
+
+    /* Menu image */
+    .menu-img {
+      width: 100%;
+      max-width: 600px;
+      display: block;
+      margin: 0 auto 30px auto;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 0, 128, 0.6);
+    }
+
+    /* Maps */
     .map {
       width: 100%;
       height: 250px;
@@ -72,30 +97,40 @@
       font-style: italic;
       margin-bottom: 30px;
     }
+
+    /* Avis clients */
     .reviews {
       background: #222;
       padding: 40px 20px;
       border-top: 2px solid #ff0080;
+      margin-top: 40px;
     }
     .review-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
     }
     .review-card {
       background: #2a2a2a;
       padding: 15px;
       border-radius: 10px;
-      box-shadow: 0 0 8px rgba(255, 0, 128, 0.2);
+      box-shadow: 0 0 10px rgba(255, 0, 128, 0.2);
+      font-size: 0.9em;
+      line-height: 1.3;
+      width: 200px;  /* largeur réduite */
+      box-sizing: border-box;
     }
     .review-text {
       font-style: italic;
+      margin-bottom: 8px;
     }
     .review-author {
-      margin-top: 10px;
-      font-size: 0.9em;
+      font-weight: bold;
       color: #ccc;
+      font-size: 0.85em;
     }
+
     .show-more-btn {
       margin: 30px auto 0;
       display: block;
@@ -106,8 +141,39 @@
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .show-more-btn:hover {
+      background-color: #cc0066;
     }
     .hidden { display: none; }
+
+    /* Footer */
+    footer {
+      font-size: 0.9em;
+      color: #ccc;
+    }
+
+    @media (max-width: 700px) {
+      .gallery {
+        flex-wrap: wrap;
+      }
+      .gallery-item {
+        max-width: 100%;
+        flex-basis: 100%;
+        margin-bottom: 15px;
+      }
+      .map {
+        height: 200px;
+      }
+      .review-grid {
+        justify-content: center;
+      }
+      .review-card {
+        width: 90%;
+        max-width: 300px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -119,7 +185,7 @@
 
   <section>
     <h2>Notre Menu</h2>
-    <img src="menu.png" alt="Menu complet" style="width:100%; max-width:600px; display:block; margin: 0 auto; border-radius:12px;" />
+    <img src="menu.png" alt="Menu complet" class="menu-img" />
   </section>
 
   <section class="gallery">
@@ -129,7 +195,7 @@
   </section>
 
   <div class="order-btn-wrapper">
-    <a class="order-btn" href="https://wa.me/66612345678" target="_blank">Commander sur WhatsApp</a>
+    <a class="order-btn" href="https://wa.me/66612345678" target="_blank" rel="noopener">Commander sur WhatsApp</a>
   </div>
 
   <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f3c6cdd3cc19%3A0x8e5e7041cbbe0b05!2sFrench%20Tacos!5e0!3m2!1sfr!2sth!4v1754064888069!5m2!1sfr!2sth" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
