@@ -30,28 +30,21 @@
       max-width: 1000px;
       margin: auto;
     }
-    .menu-img {
-      width: 100%;
-      max-width: 1000px;
-      display: block;
-      margin: 20px auto;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-    }
     .gallery {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
     }
-    .gallery-img {
-      width: 300px;
+    .gallery-item img {
+      width: 320px;
       height: auto;
       border-radius: 12px;
-      box-shadow: 0 0 10px rgba(255,0,128,0.5);
+      box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
       transition: transform 0.3s ease;
     }
-    .gallery-img:hover {
+    .gallery-item img:hover {
       transform: scale(1.05);
     }
     .order-btn-wrapper {
@@ -69,7 +62,7 @@
     }
     .map {
       width: 100%;
-      height: 300px;
+      height: 250px;
       border: none;
       border-radius: 10px;
       margin-top: 20px;
@@ -86,14 +79,14 @@
     }
     .review-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
     }
     .review-card {
       background: #2a2a2a;
-      padding: 20px;
+      padding: 15px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 0, 128, 0.2);
+      box-shadow: 0 0 8px rgba(255, 0, 128, 0.2);
     }
     .review-text {
       font-style: italic;
@@ -126,13 +119,13 @@
 
   <section>
     <h2>Notre Menu</h2>
-    <img class="menu-img" src="menu.png" alt="Menu complet">
+    <img src="menu.png" alt="Menu complet" style="width:100%; max-width:600px; display:block; margin: 0 auto; border-radius:12px;" />
   </section>
 
   <section class="gallery">
-    <img class="gallery-img" src="tacos.jpg" alt="Tacos maison">
-    <img class="gallery-img" src="french fries.jpg" alt="Frites croustillantes">
-    <img class="gallery-img" src="CheeseSauce.png" alt="Sauce fromagère maison">
+    <div class="gallery-item"><img src="tacos.jpg" alt="Tacos maison" /></div>
+    <div class="gallery-item"><img src="french fries.jpg" alt="Frites croustillantes" /></div>
+    <div class="gallery-item"><img src="CheeseSauce.png" alt="Sauce fromagère" /></div>
   </section>
 
   <div class="order-btn-wrapper">
@@ -148,13 +141,13 @@
   <section class="reviews">
     <h2>Ce que disent nos clients ⭐️⭐️⭐️⭐️⭐️</h2>
     <div class="review-grid" id="reviewGrid">
-      <div class="review-card"><p class="review-text">"Un vrai délice, je recommande vivement à tous ceux qui n'ont jamais goûter !"</p><p class="review-author">– 028 Sarawut</p></div>
+      <div class="review-card"><p class="review-text">"Un vrai délice, je recommande vivement à tous ceux qui n'ont jamais goûté !"</p><p class="review-author">– 028 Sarawut</p></div>
       <div class="review-card"><p class="review-text">"Les tacos français sont vraiment délicieux. Phillip est tellement mignon !"</p><p class="review-author">– Nanthanawan Nenejung</p></div>
       <div class="review-card"><p class="review-text">"Très bien. Cuisine : 5. Service impeccable."</p><p class="review-author">– Bmbm Bmbm</p></div>
-      <div class="review-card"><p class="review-text">"Bons tacos🌮 et bon service 💅🏻‍♂️"</p><p class="review-author">– Tor Aiamcharoen</p></div>
+      <div class="review-card"><p class="review-text">"Bons tacos🌮 et bon service 💁🏻‍♂️"</p><p class="review-author">– Tor Aiamcharoen</p></div>
       <div class="review-card"><p class="review-text">"Un goût incroyable, la meilleure cuisine du monde et le propriétaire est très sympathique."</p><p class="review-author">– อุทุมพร ทวยเจริญ</p></div>
       <div class="review-card"><p class="review-text">"Les tacos étaient très savoureux ❤️🥰"</p><p class="review-author">– ณณฐกร ชนสุธรรม</p></div>
-      <div class="review-card hidden"><p class="review-text">"C'est la première fois que j'essaie les tacos français et j'adore !! 😊🙏"</p><p class="review-author">– 05-กนกกาญญ์ หวังผล</p></div>
+      <div class="review-card hidden"><p class="review-text">"C'est la première fois que j'essaie les tacos français et j'adore !! 😊🙏"</p><p class="review-author">– 05-กนกกาญจน์ หวังผล</p></div>
       <div class="review-card hidden"><p class="review-text">"Excellente cuisine et ambiance décontractée, idéale pour un déjeuner."</p><p class="review-author">– Sharon Perets</p></div>
       <div class="review-card hidden"><p class="review-text">"La nourriture était incroyable et c'était aussi une très bonne portion !"</p><p class="review-author">– Panna Czégény</p></div>
     </div>
