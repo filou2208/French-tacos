@@ -36,15 +36,18 @@
       justify-content: center;
       gap: 10px;
     }
-    .gallery-item img {
-      width: 300px;
-      height: auto;
+    .gallery img {
+      max-width: 100%;
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
-      transition: transform 0.3s ease;
     }
-    .gallery-item img:hover {
-      transform: scale(1.05);
+    .menu-img {
+      width: 100%;
+      max-width: 1000px;
+      display: block;
+      margin: 20px auto;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     }
     .order-btn-wrapper {
       text-align: center;
@@ -118,13 +121,13 @@
 
   <section>
     <h2>Notre Menu</h2>
-    <img src="menu.png" alt="Menu complet" style="width:100%; max-width:600px; display:block; margin: 0 auto; border-radius:12px;" />
+    <img class="menu-img" src="menu.png" alt="Menu complet" />
   </section>
 
   <section class="gallery">
-    <div class="gallery-item"><img src="tacos.jpg" alt="Tacos maison" /></div>
-    <div class="gallery-item"><img src="french fries.jpg" alt="Frites croustillantes" /></div>
-    <div class="gallery-item"><img src="CheeseSauce.png" alt="Sauce fromagère" /></div>
+    <img class="gallery-img" src="tacos.jpg" alt="Tacos maison" />
+    <img class="gallery-img" src="french fries.jpg" alt="Frites croustillantes" />
+    <img class="gallery-img" src="CheeseSauce.png" alt="Sauce fromagère" />
   </section>
 
   <div class="order-btn-wrapper">
