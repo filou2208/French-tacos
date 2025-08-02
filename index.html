@@ -2,9 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Tacos français faits maison à Lamai, Koh Samui. Ouvert jusqu'à 4h du matin. Venez déguster la meilleure street food nocturne face au Speed Bar !" />
-  <title>Tacos Maison Lamai | Avis Clients</title>
+  <title>Tacos Maison Lamai</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -24,68 +24,59 @@
     }
     .lang-switch {
       text-align: center;
-      padding: 10px;
-      background: #222;
-      font-size: 1.2em;
+      margin: 15px 0;
     }
     .lang-switch a {
-      color: #00ccff;
       margin: 0 10px;
-      font-weight: bold;
+      padding: 8px 15px;
+      background: #ff0080;
+      color: white;
+      border-radius: 8px;
       text-decoration: none;
+      font-weight: bold;
     }
-    .section-content {
+    section {
       padding: 20px;
       max-width: 1000px;
       margin: auto;
     }
-    .menu-image {
+    .menu-img {
       width: 100%;
-      max-width: 800px;
+      max-width: 700px;
       display: block;
       margin: 0 auto;
       border-radius: 12px;
     }
     .gallery {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       gap: 15px;
-      padding: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
     }
     .gallery img {
       width: 320px;
       height: auto;
       border-radius: 12px;
-      box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+      box-shadow: 0 0 10px rgba(255, 0, 128, 0.4);
       transition: transform 0.3s ease;
     }
     .gallery img:hover {
       transform: scale(1.05);
     }
-    .order-btn {
-      display: block;
-      width: fit-content;
-      margin: 30px auto;
-      padding: 14px 28px;
-      background-color: #25D366;
-      color: white;
-      border-radius: 5px;
-      font-weight: bold;
-      text-decoration: none;
-    }
     .map {
       width: 90%;
+      max-width: 700px;
       height: 300px;
       border: none;
-      border-radius: 10px;
-      margin: 20px auto;
+      border-radius: 12px;
       display: block;
+      margin: 20px auto;
     }
     .map-caption {
       text-align: center;
       font-style: italic;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
     .reviews {
       background: #222;
@@ -94,10 +85,8 @@
     }
     .review-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
-      max-width: 1000px;
-      margin: auto;
     }
     .review-card {
       background: #2a2a2a;
@@ -113,38 +102,37 @@
       font-size: 0.9em;
       color: #ccc;
     }
-    .show-more-btn {
-      margin: 30px auto 0;
-      display: block;
-      padding: 12px 24px;
-      background: #ff0080;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
+    .order-btn-wrapper {
+      text-align: center;
+      margin-top: 30px;
     }
-    .scroll-top {
+    .order-btn {
+      display: inline-block;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .scroll-top-btn {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #ff0080;
+      bottom: 30px;
+      right: 30px;
+      background-color: #ff0080;
       color: white;
       border: none;
       border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      font-size: 24px;
-      font-weight: bold;
+      width: 45px;
+      height: 45px;
+      font-size: 22px;
       cursor: pointer;
       box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
-    }
-    .hidden {
-      display: none;
     }
   </style>
 </head>
 <body>
+
   <header>
     <img src="Logo French Tacos.png" alt="Logo French Tacos" style="max-width:150px;" />
     <h1>Tacos Maison Lamai</h1>
@@ -152,13 +140,14 @@
   </header>
 
   <div class="lang-switch">
-    <a href="#">FR</a> | <a href="#english">EN</a> | <a href="#thai">TH</a>
+    <a href="#">FR</a>
+    <a href="#english">EN</a>
+    <a href="#thai">TH</a>
   </div>
 
-  <section class="section-content">
+  <section>
     <h2>Notre Menu</h2>
-    <img class="menu-image" src="menu.png" alt="Menu complet" />
-    <a class="order-btn" href="https://wa.me/66612345678" target="_blank">Commander sur WhatsApp</a>
+    <img src="menu.png" alt="Menu" class="menu-img" />
   </section>
 
   <section class="gallery">
@@ -167,21 +156,25 @@
     <img src="CheeseSauce.png" alt="Sauce fromagère" />
   </section>
 
-  <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f3c6cdd3cc19%3A0x8e5e7041cbbe0b05!2sFrench%20Tacos!5e0!3m2!1sfr!2sth!4v1754064888069!5m2!1sfr!2sth"></iframe>
+  <div class="order-btn-wrapper">
+    <a class="order-btn" href="https://wa.me/66612345678" target="_blank">Commander sur WhatsApp</a>
+  </div>
+
+  <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f3c6cdd3cc19%3A0x8e5e7041cbbe0b05!2sFrench%20Tacos!5e0!3m2!1sfr!2sth!4v1754064888069!5m2!1sfr!2sth" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   <p class="map-caption">1ère Boutique – Face au Speed Bar</p>
 
-  <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f32f1843f0dd%3A0x90e97722db2e1c0b!2sFrench%20Tacos!5e0!3m2!1sfr!2sth!4v1754064949205!5m2!1sfr!2sth"></iframe>
+  <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f32f1843f0dd%3A0x90e97722db2e1c0b!2sFrench%20Tacos!5e0!3m2!1sfr!2sth!4v1754064949205!5m2!1sfr!2sth" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   <p class="map-caption">2ème Boutique – French Tacos Lamai</p>
 
   <section class="reviews">
     <h2>Ce que disent nos clients ⭐️⭐️⭐️⭐️⭐️</h2>
     <div class="review-grid">
-      <div class="review-card"><p class="review-text">"Un vrai délice, je recommande vivement à tous ceux qui n'ont jamais goûté !"</p><p class="review-author">– 028 Sarawut</p></div>
-      <div class="review-card"><p class="review-text">"Les tacos français sont vraiment délicieux. Phillip est tellement mignon !"</p><p class="review-author">– Nanthanawan Nenejung</p></div>
-      <div class="review-card"><p class="review-text">"Très bien. Cuisine : 5. Service impeccable."</p><p class="review-author">– Bmbm Bmbm</p></div>
-      <div class="review-card"><p class="review-text">"Bons tacos🌮 et bon service 💁🏻‍♂️"</p><p class="review-author">– Tor Aiamcharoen</p></div>
-      <div class="review-card"><p class="review-text">"Un goût incroyable, la meilleure cuisine du monde et le propriétaire est très sympathique."</p><p class="review-author">– อุทุมพร ทวยเจริญ</p></div>
-      <div class="review-card"><p class="review-text">"Les tacos étaient très savoureux ❤️🥰"</p><p class="review-author">– ณณฐกร ชนสุธรรม</p></div>
+      <div class="review-card"><p class="review-text">"Un vrai délice, je recommande vivement !"</p><p class="review-author">– 028 Sarawut</p></div>
+      <div class="review-card"><p class="review-text">"Les tacos sont vraiment délicieux. Phillip est trop mignon !"</p><p class="review-author">– Nanthanawan</p></div>
+      <div class="review-card"><p class="review-text">"Très bien. Cuisine : 5/5"</p><p class="review-author">– Bmbm</p></div>
+      <div class="review-card"><p class="review-text">"Bons tacos 🌮 et super service"</p><p class="review-author">– Tor Aiamcharoen</p></div>
+      <div class="review-card"><p class="review-text">"Meilleure cuisine du monde et propriétaire très sympa."</p><p class="review-author">– อุทุมพร</p></div>
+      <div class="review-card"><p class="review-text">"Tacos savoureux ❤️🥰"</p><p class="review-author">– ณณฐกร</p></div>
     </div>
   </section>
 
@@ -189,10 +182,10 @@
     &copy; 2025 Tacos Maison Lamai – Site officiel créé par Philippe (21 ans) à Koh Samui 🇹🇭🇫🇷
   </footer>
 
-  <button class="scroll-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+  <button onclick="scrollToTop()" class="scroll-top-btn" title="Haut de page">↑</button>
 
   <script>
-    window.onload = function() {
+    function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
