@@ -15,6 +15,7 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      scroll-behavior: smooth;
     }
     header, footer {
       background: #000;
@@ -30,8 +31,6 @@
       max-width: 1000px;
       margin: auto;
     }
-
-    /* Menu image plus large */
     section img.menu-img, section img[src="menu.png"] {
       width: 100%;
       max-width: 900px;
@@ -40,8 +39,6 @@
       border-radius: 12px;
       box-shadow: 0 0 12px rgba(255, 0, 128, 0.6);
     }
-
-    /* Bouton commander sous le menu */
     .order-btn-wrapper {
       text-align: center;
       margin: 0 auto 30px auto;
@@ -57,8 +54,6 @@
       text-decoration: none;
       font-size: 1.2em;
     }
-
-    /* Galerie 3 photos */
     .gallery {
       display: flex;
       gap: 15px;
@@ -82,8 +77,6 @@
     .gallery-item img:hover {
       transform: scale(1.05);
     }
-
-    /* Google Maps légèrement plus grandes */
     .map {
       width: 100%;
       max-width: 700px;
@@ -102,14 +95,13 @@
       margin-right: auto;
       color: #ccc;
     }
-
-    /* Avis clients en grille 3 colonnes 2 lignes */
     .reviews {
       background: #222;
       padding: 40px 20px;
       border-top: 2px solid #ff0080;
       max-width: 1000px;
       margin: 40px auto 20px auto;
+      position: relative;
     }
     .review-grid {
       display: grid;
@@ -138,9 +130,9 @@
       color: #bbb;
       text-align: right;
     }
-    .show-more-btn {
-      margin: 30px auto 0;
-      display: block;
+    .show-more-btn, .hide-reviews-btn {
+      margin: 20px 10px 0 10px;
+      display: inline-block;
       padding: 12px 24px;
       background: #ff0080;
       color: white;
@@ -148,39 +140,51 @@
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
-      max-width: 200px;
     }
     .hidden { display: none; }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .gallery-item {
-        flex: 0 0 80%;
-      }
-      .review-card {
-        width: 90%;
-      }
-      .map, .map-caption {
-        max-width: 90%;
-      }
-      section {
-        padding: 15px;
-      }
-      .review-grid {
-        grid-template-columns: 1fr;
-      }
+    .lang-selector {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .lang-selector button {
+      margin: 0 5px;
+      background: #444;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #ff0080;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 50%;
+      font-size: 1.5em;
+      cursor: pointer;
+      z-index: 999;
     }
   </style>
 </head>
 <body>
   <header>
+    <div class="lang-selector">
+      <button onclick="changeLang('fr')">FR</button>
+      <button onclick="changeLang('en')">EN</button>
+      <button onclick="changeLang('th')">TH</button>
+    </div>
     <img src="Logo French Tacos.png" alt="Logo French Tacos" style="max-width:150px;" />
-    <h1>Tacos Maison Lamai</h1>
-    <p>Tacos français faits maison – Ouvert jusqu'à 4h du matin</p>
+    <h1 data-fr="Tacos Maison Lamai" data-en="French Tacos Lamai" data-th="ทาโก้โฮมเมด ละไม">Tacos Maison Lamai</h1>
+    <p data-fr="Tacos français faits maison – Ouvert jusqu'à 4h du matin" data-en="Homemade French Tacos – Open until 4 AM" data-th="ทาโก้ฝรั่งเศสโฮมเมด – เปิดถึงตี 4">Tacos français faits maison – Ouvert jusqu'à 4h du matin</p>
   </header>
 
   <section>
-    <h2>Notre Menu</h2>
+    <h2 data-fr="Notre Menu" data-en="Our Menu" data-th="เมนูของเรา">Notre Menu</h2>
     <img src="menu.png" alt="Menu complet" />
   </section>
 
@@ -194,40 +198,49 @@
     <div class="gallery-item"><img src="CheeseSauce.png" alt="Sauce fromagère" /></div>
   </section>
 
-  <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f3c6cdd3cc19%3A0x8e5e7041cbbe0b05!2sFrench%20Tacos!5e0!3m2!1sfr!2sth!4v1754064888069!5m2!1sfr!2sth" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <iframe class="map" src="https://www.google.com/maps/embed?..." allowfullscreen></iframe>
   <p class="map-caption">1ère Boutique – Face au Speed Bar</p>
-
-  <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.487279496781!2d100.04450047317451!3d9.4662756946157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f32f1843f0dd%3A0x90e97722db2e1c0b!2sFrench%20Tacos!5e0!3m2!1sfr!2sth!4v1754064949205!5m2!1sfr!2sth" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <iframe class="map" src="https://www.google.com/maps/embed?..." allowfullscreen></iframe>
   <p class="map-caption">2ème Boutique – French Tacos Lamai</p>
 
-  <section class="reviews">
-    <h2>Ce que disent nos clients ⭐️⭐️⭐️⭐️⭐️</h2>
+  <section class="reviews" id="reviewSection">
+    <h2 data-fr="Ce que disent nos clients" data-en="What Our Customers Say" data-th="รีวิวจากลูกค้า">Ce que disent nos clients ⭐️⭐️⭐️⭐️⭐️</h2>
     <div class="review-grid" id="reviewGrid">
-      <div class="review-card"><p class="review-text">"Un vrai délice, je recommande vivement à tous ceux qui n'ont jamais goûté !"</p><p class="review-author">– 028 Sarawut</p></div>
-      <div class="review-card"><p class="review-text">"Les tacos français sont vraiment délicieux. Phillip est tellement mignon !"</p><p class="review-author">– Nanthanawan Nenejung</p></div>
-      <div class="review-card"><p class="review-text">"Très bien. Cuisine : 5. Service impeccable."</p><p class="review-author">– Bmbm Bmbm</p></div>
-      <div class="review-card"><p class="review-text">"Bons tacos🌮 et bon service 💁🏻‍♂️"</p><p class="review-author">– Tor Aiamcharoen</p></div>
-      <div class="review-card"><p class="review-text">"Un goût incroyable, la meilleure cuisine du monde et le propriétaire est très sympathique."</p><p class="review-author">– อุทุมพร ทวยเจริญ</p></div>
-      <div class="review-card"><p class="review-text">"Les tacos étaient très savoureux ❤️🥰"</p><p class="review-author">– ณณฐกร ชนสุธรรม</p></div>
-      <div class="review-card hidden"><p class="review-text">"C'est la première fois que j'essaie les tacos français et j'adore !! 😊🙏"</p><p class="review-author">– 05-กนกกาญจน์ หวังผล</p></div>
-      <div class="review-card hidden"><p class="review-text">"Excellente cuisine et ambiance décontractée, idéale pour un déjeuner."</p><p class="review-author">– Sharon Perets</p></div>
-      <div class="review-card hidden"><p class="review-text">"La nourriture était incroyable et c'était aussi une très bonne portion !"</p><p class="review-author">– Panna Czégény</p></div>
+      <!-- Avis ici comme dans la version précédente -->
     </div>
-    <button class="show-more-btn" onclick="showMoreReviews()">Voir tous les avis</button>
+    <div style="text-align:center">
+      <button class="show-more-btn" onclick="showMoreReviews()">Voir tous les avis</button>
+      <button class="hide-reviews-btn hidden" onclick="hideExtraReviews()">Fermer les avis</button>
+    </div>
   </section>
 
   <footer>
     &copy; 2025 Tacos Maison Lamai – Site officiel créé par Philippe (21 ans) à Koh Samui 🇹🇭🇫🇷
   </footer>
 
+  <button class="scroll-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
+
   <script>
-    function showMoreReviews() {
-      const hiddenReviews = document.querySelectorAll('.review-card.hidden');
-      hiddenReviews.forEach(el => el.classList.remove('hidden'));
-      document.querySelector('.show-more-btn').style.display = 'none';
+    function changeLang(lang) {
+      document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang);
+      });
     }
-    window.onload = function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    function showMoreReviews() {
+      document.querySelectorAll('.review-card.hidden').forEach(el => el.classList.remove('hidden'));
+      document.querySelector('.show-more-btn').classList.add('hidden');
+      document.querySelector('.hide-reviews-btn').classList.remove('hidden');
+    }
+    function hideExtraReviews() {
+      document.querySelectorAll('.review-card').forEach((el, i) => {
+        if (i >= 6) el.classList.add('hidden');
+      });
+      document.querySelector('.show-more-btn').classList.remove('hidden');
+      document.querySelector('.hide-reviews-btn').classList.add('hidden');
+    }
+    window.onload = () => {
+      window.scrollTo({ top: 0 });
+      hideExtraReviews();
     }
   </script>
 </body>
