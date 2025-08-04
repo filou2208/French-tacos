@@ -74,11 +74,11 @@
       box-shadow: 0 0 12px rgba(255, 0, 128, 0.6);
     }
     .gallery-item img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-      display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  display: block;
     }
     .gallery-item img:hover {
       transform: scale(1.05);
@@ -203,8 +203,9 @@
     align-items: center;
   }
   .gallery-item {
-    flex: 0 0 80%;
-  }
+  flex: 0 0 80%;
+  height: 260px;
+}
   .review-card {
     width: 90%;
   }
