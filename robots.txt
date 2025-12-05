@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://filou2208.github.io/French-tacos/sitemap.xml
+Sitemap: https://frenchtacoskohsamui.com/sitemap.xml
